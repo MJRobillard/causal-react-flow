@@ -1,13 +1,13 @@
-.standard-node {
+.starting-node {
   border-radius: var(--radius-m);
-  border: 2px solid var(--c-blue-grey-100);
+  border: 4px solid var(--c-blue-grey-100);
   background-color: var(--c-grey-100);
 
   &-body {
     position: relative;
     overflow: hidden;
     padding: var(--size-m);
-    border-radius: var(--radius-m);
+    border-radius: var(--radius-s);
 
     .node-category-color {
       position: absolute;

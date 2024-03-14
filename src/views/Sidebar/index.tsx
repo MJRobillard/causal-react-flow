@@ -2,6 +2,8 @@ import NodeCategories from '../../data/NodeCategories';
 import Nodes, { NodeType } from '../../data/Nodes';
 import './Sidebar.scss';
 import { Input } from 'antd';
+import { Upload } from 'antd'; // Replace 'your-upload-library' with the actual library you're using
+const { Dragger } = Upload;
 const { Search } = Input;
 
 function Sidebar() {
@@ -18,6 +20,7 @@ function Sidebar() {
         <Search className="sidebar-search" placeholder="Search" allowClear onSearch={onSearch} />
       </div>
       <div className="sidebar-description">
+        <Dragger>Drag CSV File</Dragger>
         <span>Drag the node you want to use to the panel</span>
       </div>
       <div className="sidebar-body">

@@ -6,6 +6,7 @@ export enum NodeCategoryType {
   Output = 'output',
   Starting = 'starting',
   Observation = 'observation',
+  NotObserved = 'notObserved',
 }
 
 const NodeCategories: { [key in NodeCategoryType]: NodeCategoryModel } = {
@@ -24,6 +25,10 @@ const NodeCategories: { [key in NodeCategoryType]: NodeCategoryModel } = {
   [NodeCategoryType.Observation]: {
     name: 'observation',
     color: Colors.materail(ColorName.Green, ColorTone.T300),
+  },
+  [NodeCategoryType.NotObserved]: {
+    name: 'notObserved',
+    color: Colors.materail(ColorName.Grey, ColorTone.T300),
   },
 };
 

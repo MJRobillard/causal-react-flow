@@ -6,6 +6,7 @@ export enum NodeType {
   Observation = 'observation',
   Output = 'output',
   Starting = 'starting',
+  NotObserved = 'notObserved',
 }
 
 const Nodes: { [key in NodeType]: NodeModel } = {
@@ -31,6 +32,12 @@ const Nodes: { [key in NodeType]: NodeModel } = {
     label: 'Starting Node',
     category: NodeCategoryType.Starting,
     key: NodeType.Starting,
+    // Add any additional properties specific to Starting nodes
+  },
+  [NodeType.NotObserved]: {
+    label: 'Not Observed Node',
+    category: NodeCategoryType.NotObserved,
+    key: NodeType.NotObserved,
     // Add any additional properties specific to Starting nodes
   },
 };

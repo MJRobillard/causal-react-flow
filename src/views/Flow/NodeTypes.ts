@@ -7,6 +7,7 @@ const nodeTypes: NodeTypes = {
   [NodeType.Starting]: StandardNode as any,
   [NodeType.Observation]: StandardNode as any,
   [NodeType.Output]: StandardNode as any,
+  [NodeType.NotObserved]: StandardNode as any,
 };
 
 export default nodeTypes;
