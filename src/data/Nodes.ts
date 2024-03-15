@@ -2,11 +2,11 @@ import { NodeModel } from '../models/NodeModel';
 import { NodeCategoryType } from './NodeCategories';
 
 export enum NodeType {
-  Conditional = 'conditional',
-  Observation = 'observation',
-  Output = 'output',
-  Starting = 'starting',
-  NotObserved = 'notObserved',
+  Conditional = 'Conditional',
+  Observation = 'Observation',
+  Output = 'Output',
+  Starting = 'Starting',
+  NotObserved = 'NotObserved',
 }
 
 const Nodes: { [key in NodeType]: NodeModel } = {

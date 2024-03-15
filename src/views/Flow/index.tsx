@@ -5,7 +5,7 @@ import 'reactflow/dist/style.css';
 import './Flow.scss';
 import { generateNodeId } from '../../utils/helper';
 import NodeTypes from './NodeTypes';
-import { NodeModel, initialEdges, initialNodes } from '../../models/NodeModel';
+import { NodeModel, releaseInitialEdges, releaseInitialNodes } from '../../models/NodeModel';
 import Nodes, { NodeType } from '../../data/Nodes';
 import { message, Select } from 'antd';
 
@@ -25,10 +25,8 @@ const Flow = () => {
     setEdges((eds) => {
       const newEdges = addEdge(params, eds);
       console.log('pay', params, eds);
-
       // Log the updated edges
       console.log('Updated edges:', newEdges);
-
       // Return the newEdges for updating the state
       return newEdges;
     });
@@ -69,12 +67,6 @@ const Flow = () => {
     },
     [reactFlowInstance],
   );
-
-  useEffect(() => {
-    // Set initial nodes and edges when component mounts
-    setNodes([...initialNodes]);
-    setEdges([...initialEdges]);
-  }, []);
 
   return (
     <div className="reactflow-wrapper" ref={reactFlowWrapper}>

@@ -8,10 +8,10 @@ export interface NodeModel {
 }
 
 export const initialEdges: Edge<any>[] = [
-  { source: 'A', target: 'B', id: '{anything unique}' },
+  { source: 'Aoriginal', target: 'Boriginal', id: '{anything unique}+original' },
   {
-    source: 'B',
-    target: 'C',
+    source: 'Boriginal',
+    target: 'Coriginal',
     id: '{anything unique2}',
   },
 ];
@@ -20,49 +20,49 @@ export const initialNodes = [
   // Define your initial nodes here
   // Example:
   {
-    id: 'A',
-    type: 'starting',
+    id: 'Aoriginal',
+    type: 'Starting',
     position: { x: 100, y: 100 },
     data: {
       label: 'Starting Node',
-      category: 'starting',
+      category: 'Starting',
     },
   },
   {
-    id: 'B',
-    type: 'output',
+    id: 'Coriginal',
+    type: 'Output',
     color: 'red',
-    position: { x: 200, y: 200 },
+    position: { x: 300, y: 400 },
     data: {
       label: 'Output Node',
-      category: 'output',
+      category: 'Output',
     },
   },
   {
-    id: 'C',
-    type: 'conditional',
-    position: { x: 300, y: 300 },
+    id: 'Boriginal',
+    type: 'Conditional',
+    position: { x: 200, y: 300 },
     data: {
       label: 'Conditional Node',
-      category: 'conditional',
+      category: 'Conditional',
     },
   },
   {
-    id: 'D',
-    type: 'observation',
+    id: 'Doriginal',
+    type: 'Observation',
     position: { x: 350, y: 100 },
     data: {
       label: 'Observation Node',
-      category: 'observation',
+      category: 'Observation',
     },
   },
   {
-    id: 'E',
-    type: 'notObserved',
+    id: 'Eoriginal',
+    type: 'NotObserved',
     position: { x: 350, y: 300 },
     data: {
       label: 'NotObserved',
-      category: 'notObserved',
+      category: 'NotObserved',
     },
   },
 ];
