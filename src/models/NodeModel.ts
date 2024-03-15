@@ -6,6 +6,7 @@ export interface NodeModel {
   category: NodeCategoryType;
   key: NodeType;
 }
+
 export const initialEdges: Edge<any>[] = [
   { source: 'A', target: 'B', id: '{anything unique}' },
   {
