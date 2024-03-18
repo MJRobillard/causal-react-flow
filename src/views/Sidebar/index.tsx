@@ -20,7 +20,7 @@ function Sidebar() {
         <Search className="sidebar-search" placeholder="Search" allowClear onSearch={onSearch} />
       </div>
       <div className="sidebar-description">
-        <Dragger>Drag CSV File</Dragger>
+        <Dragger>Drag Data File For Causal Discovery</Dragger>
         <span>Drag the node you want to use to the panel</span>
       </div>
       <div className="sidebar-body">

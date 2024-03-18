@@ -4,6 +4,7 @@ import './Main.scss';
 import Sidebar from '../Sidebar';
 import Flow from '../Flow';
 import { NodeCounter } from '../../NodeCounter';
+import { initialEdges, initialNodes } from '../../models/NodeModel';
 
 const DynamicFlow = () => {
   return (
