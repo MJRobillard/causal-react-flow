@@ -1,22 +1,21 @@
-import { memo } from 'react';
-import { Handle, Position, NodeToolbar } from 'reactflow';
+import { Handle, Position } from 'react-flow-renderer';
+import { Node } from 'reactflow';
+import { NodeModel } from '../../../models/NodeModel';
+import './StartingNode.scss';
+import NodeCategories from '../../../data/NodeCategories';
 
-// eslint-disable-next-line react/prop-types
-export const CustomNode = () => {
+function StartingNode(props: Node<NodeModel>) {
+  const category = NodeCategories[props.data.category];
   return (
-    <>
-      <NodeToolbar isVisible={true} position={Position.Top}>
-        <button>delete</button>
-        <button>copy</button>
-        <button>expand</button>
-      </NodeToolbar>
-
-      <div style={{ padding: '10px 20px' }}>{'test'}</div>
-
-      <Handle type="target" position={Position.Left} />
-      <Handle type="source" position={Position.Right} />
-    </>
+    <div className="dnd-node starting-node">
+      <Handle isConnectable id={`${props.data.key}-input`} type="target" position={Position.Top} />
+      <div className="starting-node-body">
+        <div style={{ background: category.color }} className="node-category-color" />
+        <span>{props.data.label}</span>
+      </div>
+      <Handle isConnectable id={`${props.data.key}-output`} type="source" position={Position.Bottom} />
+    </div>
   );
-};
+}
 
-export default memo(CustomNode);
+export default StartingNode;
