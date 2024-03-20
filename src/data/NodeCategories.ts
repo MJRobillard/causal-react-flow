@@ -12,23 +12,23 @@ export enum NodeCategoryType {
 const NodeCategories: { [key in NodeCategoryType]: NodeCategoryModel } = {
   [NodeCategoryType.Conditional]: {
     name: 'Conditional Node',
-    color: Colors.materail(ColorName.Blue, ColorTone.T300),
+    color: Colors.materail(ColorName.Blue, ColorTone.T100), // Toned down to T100
   },
   [NodeCategoryType.Output]: {
-    name: 'output',
-    color: Colors.materail(ColorName.Yellow, ColorTone.T300),
+    name: 'Output',
+    color: Colors.materail(ColorName.Yellow, ColorTone.T100), // Toned down to T100
   },
   [NodeCategoryType.Starting]: {
-    name: 'starting',
-    color: Colors.materail(ColorName.Pink, ColorTone.T300),
+    name: 'Starting',
+    color: Colors.materail(ColorName.Red, ColorTone.T100), // Toned down to T100
   },
   [NodeCategoryType.Observation]: {
-    name: 'observation',
-    color: Colors.materail(ColorName.Green, ColorTone.T300),
+    name: 'Observation',
+    color: Colors.materail(ColorName.DeepPurple, ColorTone.T200), // Toned down to T100
   },
   [NodeCategoryType.NotObserved]: {
-    name: 'notObserved',
-    color: Colors.materail(ColorName.Grey, ColorTone.T300),
+    name: 'NotObserved',
+    color: Colors.materail(ColorName.Grey, ColorTone.T100), // Toned down to T100
   },
 };
 

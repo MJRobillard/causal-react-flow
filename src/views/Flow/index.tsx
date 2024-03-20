@@ -1,30 +1,21 @@
 import React, { useState, useRef, useCallback } from 'react';
-import ReactFlow, {
-  addEdge,
-  useNodesState,
-  useEdgesState,
-  Node,
-  ConnectionLineType,
-  Connection,
-  useReactFlow,
-  MarkerType,
-} from 'react-flow-renderer';
+import ReactFlow, { addEdge, useNodesState, useEdgesState, Node, Connection, useReactFlow, MarkerType, Edge } from 'react-flow-renderer';
 import { OnInit } from 'react-flow-renderer';
 import 'reactflow/dist/style.css';
 import './Flow.scss';
 import { generateNodeId } from '../../utils/helper';
 import NodeTypes from './NodeTypes';
-import { NodeModel, defaultNodes, defaultEdges } from '../../models/NodeModel';
+import { NodeModel } from '../../models/NodeModel';
 import Nodes, { NodeType } from '../../data/Nodes';
 import { message } from 'antd';
 
 // variable to update the api of the graphs current state
 //INITIAL STARTING NODES
 
-const Flow = () => {
+function Flow() {
   const reactFlowWrapper = useRef<any>(null);
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
-  const [edges, setEdges, onEdgesChange] = useEdgesState([defaultEdges]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [ReactFlowJson] = useState([]);
   const { setViewport } = useReactFlow();
   const [reactFlowInstance, setReactFlowInstance] = useState<any>(null);
@@ -100,8 +91,8 @@ const Flow = () => {
         type: 'straight', // Using a straight arrow instead of the curve default
         markerEnd: {
           type: MarkerType.ArrowClosed,
-          width: 20,
-          height: 20,
+          width: 50,
+          height: 50,
         },
       };
       const newEdges = addEdge(newEdgeParams, eds);
@@ -185,6 +176,6 @@ const Flow = () => {
       ></ReactFlow>
     </div>
   );
-};
+}
 
 export default Flow;
