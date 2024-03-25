@@ -3,7 +3,8 @@ import { NodeCategoryType } from '../data/NodeCategories';
 
 export interface NodeModel {
   label: string;
-  category: NodeCategoryType;
+  category: string;
   key: NodeType;
+  apiCallData: string;
 }
 // Example usage:

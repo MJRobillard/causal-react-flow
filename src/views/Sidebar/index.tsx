@@ -5,6 +5,7 @@ import { Input } from 'antd';
 import { Upload } from 'antd'; // Replace 'your-upload-library' with the actual library you're using
 const { Dragger } = Upload;
 const { Search } = Input;
+import NodeTypeToColorMap from '../Flow/UtilColorMap';
 
 function Sidebar() {
   const onDragStart = (event: React.DragEvent<HTMLDivElement>, nodeType: NodeType) => {
@@ -26,10 +27,9 @@ function Sidebar() {
       <div className="sidebar-body">
         <div className="sidebar-nodes">
           {Object.values(Nodes).map((n, i) => {
-            const category = NodeCategories[n.category];
             return (
               <div key={'node' + i} className="node-item" onDragStart={(event) => onDragStart(event, n.key)} draggable>
-                <div style={{ background: category.color }} className="node-category-color" />
+                <div style={{ background: NodeTypeToColorMap[n.category], borderRadius: '100%' }} className="node-category-color" />
                 <span className="node-label">{n.label}</span>
               </div>
             );

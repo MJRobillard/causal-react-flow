@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import ReactFlow, { addEdge, useNodesState, useEdgesState, Node, Connection, useReactFlow, MarkerType, Edge } from 'react-flow-renderer';
 import { OnInit } from 'react-flow-renderer';
 import 'reactflow/dist/style.css';
@@ -8,14 +8,16 @@ import NodeTypes from './NodeTypes';
 import { NodeModel } from '../../models/NodeModel';
 import Nodes, { NodeType } from '../../data/Nodes';
 import { message } from 'antd';
+import NodeCategories from '../../data/NodeCategories';
+import NodeTypeToColorMap from './UtilColorMap';
+import ButtonEdge from './ButtonEdge';
 
 // variable to update the api of the graphs current state
-//INITIAL STARTING NODES
-
 function Flow() {
   const reactFlowWrapper = useRef<any>(null);
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const [nodeName, setNodeName] = useState('Conditional');
   const [ReactFlowJson] = useState([]);
   const { setViewport } = useReactFlow();
   const [reactFlowInstance, setReactFlowInstance] = useState<any>(null);
@@ -161,6 +163,7 @@ function Flow() {
       <button onClick={onRestore}>Restore</button>
       <button onClick={exportData}>Download</button>
       <input id="fileInput" type="file" accept=".json" onChange={(e) => handleFileChange(e.target.files)} />
+      <input value={nodeName} onChange={(evt) => setNodeName(evt.target.value)} />
 
       <ReactFlow
         nodeTypes={NodeTypes}

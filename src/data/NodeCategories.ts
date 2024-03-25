@@ -2,16 +2,17 @@ import NodeCategoryModel from '../models/NodeCategoryModel';
 import Colors, { ColorName, ColorTone } from '../utils/Color';
 
 export enum NodeCategoryType {
-  Conditional = 'conditional',
-  Output = 'output',
-  Starting = 'starting',
-  Observation = 'observation',
-  NotObserved = 'notObserved',
+  Conditional = 'Conditional',
+  Output = 'Output',
+  Starting = 'Starting',
+  Observation = 'Observation',
+  NotObserved = 'NotObserved',
+  Standard = 'Standard',
 }
 
 const NodeCategories: { [key in NodeCategoryType]: NodeCategoryModel } = {
   [NodeCategoryType.Conditional]: {
-    name: 'Conditional Node',
+    name: 'Conditional',
     color: Colors.materail(ColorName.Blue, ColorTone.T100), // Toned down to T100
   },
   [NodeCategoryType.Output]: {
@@ -29,6 +30,10 @@ const NodeCategories: { [key in NodeCategoryType]: NodeCategoryModel } = {
   [NodeCategoryType.NotObserved]: {
     name: 'NotObserved',
     color: Colors.materail(ColorName.Grey, ColorTone.T100), // Toned down to T100
+  },
+  [NodeCategoryType.Standard]: {
+    name: 'Standard',
+    color: Colors.materail(ColorName.Grey, ColorTone.T200), // Toned down to T100
   },
 };
 
