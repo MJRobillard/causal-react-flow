@@ -17,6 +17,8 @@ const EdgeModal: React.FC<EdgeModalProps> = ({ visible, edge, onClose }) => {
           <p>Edge ID: {edge.id}</p>
           <p> Edge Source: {edge.source} </p>
           <p> Edge Target: {edge.target} </p>
+          <p> Edge Type: {edge.type}</p>
+          <p> Edge Type: {edge.label}</p>
 
           {/* Add other edge information */}
         </div>
