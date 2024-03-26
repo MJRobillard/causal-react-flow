@@ -40,7 +40,7 @@ function StandardNode(props: Node<NodeModel>) {
 
   return (
     <div className="dnd-node" style={{ backgroundColor: NodeTypeToColorMap[props.data.category], borderRadius: '100%' }}>
-      <Handle type="target" position={Position.Top} />
+      <Handle type="target" position={Position.Top} id={props.id + '-input'} />
       <div className="standard-node-body">
         <span>{props.data.label}</span>
         <div style={{ marginBottom: '10px' }}>

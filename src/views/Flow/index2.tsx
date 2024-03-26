@@ -8,9 +8,6 @@ import NodeTypes from './NodeTypes';
 import { NodeModel } from '../../models/NodeModel';
 import Nodes, { NodeType } from '../../data/Nodes';
 import { message } from 'antd';
-import { useEdges } from 'reactflow';
-import EdgeModal from './edgeModal';
-
 // variable to update the api of the graphs current state
 function Flow() {
   const reactFlowWrapper = useRef<any>(null);
@@ -20,8 +17,6 @@ function Flow() {
   const [ReactFlowJson] = useState([]);
   const { setViewport } = useReactFlow();
   const [reactFlowInstance, setReactFlowInstance] = useState<any>(null);
-  const [isEdgeModalVisible, setIsEdgeModalVisible] = useState(false);
-  const [selectedEdge, setSelectedEdge] = useState<Edge | null>(null);
 
   const onSave = useCallback(() => {
     const flowData = {
@@ -84,6 +79,12 @@ function Flow() {
   };
 
   console.log(ReactFlowJson);
+  const checkAnyEdgeSelected = useCallback(() => {
+    const selectedEdges = edges.some((edge) => edge.selected);
+    if (selectedEdges) {
+      alert('At least one edge is selected!');
+    }
+  }, [edges]);
 
   const onConnect = useCallback((params: Connection) => {
     console.log('Connecting nodes:', params.source, 'to', params.target);
@@ -157,19 +158,7 @@ function Flow() {
     };
     reader.readAsText(files[0]);
   };
-  const handleEdgeClick = (event: React.MouseEvent, edge: Edge) => {
-    setSelectedEdge(edge);
-    console.log(selectedEdge);
-    setIsEdgeModalVisible(true); // Show modal
 
-    // Handle edge click event here
-  };
-  useEffect(() => {
-    console.log(selectedEdge); // This will log the updated value of selectedEdge
-    if (selectedEdge) {
-      setIsEdgeModalVisible(true); // Show modal
-    }
-  }, [selectedEdge]);
   return (
     <div className="reactflow-wrapper" ref={reactFlowWrapper}>
       <button onClick={reset}>Reset</button>
@@ -178,7 +167,7 @@ function Flow() {
       <button onClick={exportData}>Download</button>
       <input id="fileInput" type="file" accept=".json" onChange={(e) => handleFileChange(e.target.files)} />
       <input value={nodeName} onChange={(evt) => setNodeName(evt.target.value)} />
-      <EdgeModal visible={isEdgeModalVisible} edge={selectedEdge} onClose={() => setIsEdgeModalVisible(false)}></EdgeModal>
+
       <ReactFlow
         nodeTypes={NodeTypes}
         nodes={nodes}
@@ -190,7 +179,6 @@ function Flow() {
         onDrop={onDrop}
         onDragOver={onDragOver}
         fitView
-        onEdgeDoubleClick={handleEdgeClick}
       ></ReactFlow>
     </div>
   );
